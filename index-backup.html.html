@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OQLO.AI — The Next Generation Digital-Twin Platform</title>
+  <meta name="description" content="OQLO enables real-time drone surveying, digital twins, AI analytics, and construction progress tracking from anywhere.">
+  <link rel="icon" type="image/png" href="assets/oqlo_logo.png">
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css?v=3">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       LOADING SCREEN (Minimal, Pure White, Drone Progress Animation)
+       ========================================================================== -->
+  <div id="loading-screen">
+    <div class="loader-container">
+      <div class="loader-brand">
+        <img src="assets/oqlo_logo.png" alt="OQLO Logo" class="loader-logo-img">
+        <div class="loader-title">OQLO<span>.AI</span></div>
+      </div>
+      <div class="loader-tagline">Initializing Spatial Data Platform</div>
+      
+      <div class="loader-track-wrap">
+        <div class="loader-drone">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3" fill="#0088EA"/>
+            <path d="M4 8L8 10M16 10L20 8M4 16L8 14M16 14L20 16"/>
+            <circle cx="4" cy="8" r="2"/>
+            <circle cx="20" cy="8" r="2"/>
+            <circle cx="4" cy="16" r="2"/>
+            <circle cx="20" cy="16" r="2"/>
+          </svg>
+        </div>
+        <div class="loader-progress-bar">
+          <div class="loader-progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="loader-status">
+        <span>Loading...</span>
+        <span id="loader-percent">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       NAVBAR (Updated to exact items: Home, Process, Services, Sectors, Blogs, About, Get Demo)
+       With L2 Lexical Navigation Dropdowns
+       ========================================================================== -->
+  <div class="navbar-wrapper">
+    <nav class="navbar-container">
+      <div class="navbar-left">
+        <a href="#hero" class="nav-brand">
+          <img src="assets/oqlo_logo.png" alt="OQLO Logo" class="nav-brand-logo">
+          <span class="nav-brand-text">OQLO<span>.AI</span></span>
+        </a>
+      </div>
+
+      <ul class="navbar-links">
+        
+        <!-- 1. Home -->
+        <li class="nav-item">
+          <a href="#hero" class="nav-link active">Home</a>
+        </li>
+
+        <!-- 2. Process (L2 Lexical Dropdown) -->
+        <li class="nav-item">
+          <a href="#process" class="nav-link">
+            Process
+            <span class="nav-chevron">▼</span>
+          </a>
+          <div class="l2-dropdown">
+            <div class="l2-grid">
+              <a href="#process" class="l2-link">
+                <div class="l2-icon">01</div>
+                <div class="l2-info">
+                  <span class="l2-title">01 Data Capture</span>
+                  <span class="l2-desc">RTK/PPK mission planning & aerial acquisition</span>
+                </div>
+              </a>
+              <a href="#process" class="l2-link">
+                <div class="l2-icon">02</div>
+                <div class="l2-info">
+                  <span class="l2-title">02 Data Processing & Analysis</span>
+                  <span class="l2-desc">Cloud photogrammetry & AI spatial analytics</span>
+                </div>
+              </a>
+              <a href="#process" class="l2-link">
+                <div class="l2-icon">03</div>
+                <div class="l2-info">
+                  <span class="l2-title">03 Report Generation</span>
+                  <span class="l2-desc">CAD files, volumetric calculations & survey reports</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- 3. Services (L2 Lexical Megamenu Dropdown) -->
+        <li class="nav-item">
+          <a href="#services" class="nav-link">
+            Services
+            <span class="nav-chevron">▼</span>
+          </a>
+          <div class="l2-dropdown">
+            <div class="l2-grid-2col">
+              <a href="#services" class="l2-link">
+                <div class="l2-icon hand-tool-icon-wrap">
+                  <!-- Animated L2 Hand Tool Icon -->
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v3"/>
+                    <path d="M14 9V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v7"/>
+                    <path d="M10 9V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
+                    <path d="M10 15a4 4 0 0 0 8 0v-4a2 2 0 0 0-2-2h-1"/>
+                  </svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">Drone Surveying (Hand Tool Pan)</span>
+                  <span class="l2-desc">Centimeter-level aerial spatial capture & 3D inspection</span>
+                </div>
+              </a>
+
+              <a href="#services" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">3D Mapping & Photogrammetry</span>
+                  <span class="l2-desc">Orthomosaics, DSM, DTM & point clouds</span>
+                </div>
+              </a>
+
+              <a href="#digital-twin" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">Digital Twins</span>
+                  <span class="l2-desc">Interactive 3D site models & spatial markers</span>
+                </div>
+              </a>
+
+              <a href="#cad" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 12h16M12 4v16"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">CAD File Generation</span>
+                  <span class="l2-desc">Direct export to .DXF & .DWG formats</span>
+                </div>
+              </a>
+
+              <a href="#services" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">Volumetric & Earthwork Analysis</span>
+                  <span class="l2-desc">Stockpile calculations & cut-and-fill</span>
+                </div>
+              </a>
+
+              <a href="#ai" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">AI Spatial Analytics</span>
+                  <span class="l2-desc">Automated object classification & hazard scan</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- 4. Sectors (L2 Lexical Dropdown) -->
+        <li class="nav-item">
+          <a href="#sectors" class="nav-link">
+            Sectors
+            <span class="nav-chevron">▼</span>
+          </a>
+          <div class="l2-dropdown">
+            <div class="l2-grid">
+              <a href="#sectors" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M5 20V8l7-5 7 5v12M9 12h6M9 16h6"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">Construction & Infrastructure</span>
+                  <span class="l2-desc">Progress tracking & grading verification</span>
+                </div>
+              </a>
+
+              <a href="#sectors" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.5-4.5 10-10 10S2 17.5 2 12A10 10 0 0 1 12 2z"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">Agriculture & Estates</span>
+                  <span class="l2-desc">Crop health monitoring & boundary mapping</span>
+                </div>
+              </a>
+
+              <a href="#sectors" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 7 12 12 2 7 12 2"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">Mining & Quarrying</span>
+                  <span class="l2-desc">Excavation tracking & haulage optimization</span>
+                </div>
+              </a>
+
+              <a href="#sectors" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">Urban Planning & Smart Cities</span>
+                  <span class="l2-desc">3D spatial land use & municipal planning</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- 5. Blogs (L2 Lexical Dropdown) -->
+        <li class="nav-item">
+          <a href="#blogs" class="nav-link">
+            Blogs
+            <span class="nav-chevron">▼</span>
+          </a>
+          <div class="l2-dropdown">
+            <div class="l2-grid">
+              <a href="#blogs" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">Land Transformation</span>
+                  <span class="l2-desc">Monitoring site changes through drone mapping</span>
+                </div>
+              </a>
+
+              <a href="#blogs" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">Coffee Estate Boundaries</span>
+                  <span class="l2-desc">Precision aerial boundary delimitation</span>
+                </div>
+              </a>
+
+              <a href="#blogs" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">Real-Time Construction Tracking</span>
+                  <span class="l2-desc">Advanced 3D mapping on site progress</span>
+                </div>
+              </a>
+
+              <a href="#blogs" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">Smart City Development</span>
+                  <span class="l2-desc">Accelerating municipal spatial insights</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- 6. About (L2 Lexical Dropdown) -->
+        <li class="nav-item">
+          <a href="#about" class="nav-link">
+            About
+            <span class="nav-chevron">▼</span>
+          </a>
+          <div class="l2-dropdown">
+            <div class="l2-grid">
+              <a href="#about" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">Who We Are</span>
+                  <span class="l2-desc">Transforming site surveys with drone tech & AI</span>
+                </div>
+              </a>
+
+              <a href="#about" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">48-Hour Delivery Commitment</span>
+                  <span class="l2-desc">Swift execution & rapid geospatial turnaround</span>
+                </div>
+              </a>
+
+              <a href="#about" class="l2-link">
+                <div class="l2-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="l2-info">
+                  <span class="l2-title">Visionary Leadership</span>
+                  <span class="l2-desc">Meet the pioneers driving our geospatial team</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+      <div class="navbar-right">
+        <!-- Exact Get Demo button matching uploaded screenshot -->
+        <button class="btn-nav-demo open-demo-btn">Get Demo</button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ==========================================================================
+       HERO SECTION (Home)
+       ========================================================================== -->
+  <section id="hero" class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Precision Drone Technology & Spatial AI
+          </div>
+          <h1 class="hero-heading">
+            The Next Generation <br>
+            <span class="hero-heading-gradient">Digital-Twin Platform</span>
+          </h1>
+          <p class="hero-description">
+            OQLO enables real-time drone surveying, digital twins, AI analytics, and construction progress tracking from anywhere. Precision, speed, and clarity for every survey.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary open-demo-btn">
+              GET A DEMO
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <a href="#services" class="btn-secondary">
+              EXPLORE SERVICES
+            </a>
+          </div>
+
+          <div class="hero-stats-row">
+            <div class="hero-stat-card">
+              <div class="hero-stat-val">Centimeter</div>
+              <div class="hero-stat-label">Pinpoint Accuracy (~99%)</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="hero-stat-val">Save 80%</div>
+              <div class="hero-stat-label">On Surveying Costs</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="hero-stat-val">RTK / PPK</div>
+              <div class="hero-stat-label">Precision Geotagging</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Hero Survey Visual (Optimized 60fps) -->
+        <div class="hero-visual-card canvas-interactive-grab" id="hero-card-wrap">
+          <div class="hero-3d-toolbar">
+            <div class="hero-mode-pills">
+              <button class="mode-pill-btn active" data-mode="surface">3D Surface</button>
+              <button class="mode-pill-btn" data-mode="points">Point Cloud</button>
+              <button class="mode-pill-btn" data-mode="contours">Contours</button>
+              <button class="mode-pill-btn" data-mode="mesh">3D Mesh</button>
+            </div>
+            
+            <!-- L2 Floating Spatial Toolbar -->
+            <div class="l2-spatial-toolbar" title="Spatial Navigation Tools">
+              <button class="spatial-tool-btn active" id="tool-hand" title="L2 Hand Tool (Pan / Rotate / Inspect)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v3"/>
+                  <path d="M14 9V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v7"/>
+                  <path d="M10 9V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
+                  <path d="M10 15a4 4 0 0 0 8 0v-4a2 2 0 0 0-2-2h-1"/>
+                </svg>
+              </button>
+              <button class="spatial-tool-btn" id="tool-measure" title="Measure Distance Tool">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 6H3M21 12H3M21 18H3M7 6v12M17 6v12"/>
+                </svg>
+              </button>
+              <button class="spatial-tool-btn" id="tool-pin" title="Survey Marker Pin">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div id="hero-canvas-container"></div>
+
+          <!-- L2 Lexical Animated Hand Tool Gesture Indicator -->
+          <div class="hand-tool-indicator" id="hero-hand-indicator">
+            <div class="hand-tool-icon-wrap">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v3"/>
+                <path d="M14 9V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v7"/>
+                <path d="M10 9V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
+                <path d="M10 15a4 4 0 0 0 8 0v-4a2 2 0 0 0-2-2h-1"/>
+              </svg>
+            </div>
+            <span>Pan & Rotate with L2 Hand Tool</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: PROCESS (#process)
+       01 Data Capture -> 02 Data Processing & Analysis -> 03 Report Generation
+       ========================================================================== -->
+  <section id="process" class="section-process">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Streamlined Methodology</div>
+        <h2 class="section-title">OQLO's Survey & Analytics Process</h2>
+        <p class="section-subtitle">
+          From flight mission planning in the field to actionable cloud-based geospatial intelligence.
+        </p>
+      </div>
+
+      <div class="workflow-track-wrapper">
+        <div class="workflow-connect-line">
+          <div class="workflow-connect-active"></div>
+        </div>
+
+        <!-- Small drone animation moving from Data Capture toward Processing -->
+        <div class="workflow-drone-tracker" title="OQLO Survey Drone Tracker">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3" fill="#0088EA"/>
+            <path d="M4 8L8 10M16 10L20 8M4 16L8 14M16 14L20 16"/>
+            <circle cx="4" cy="8" r="1.5"/>
+            <circle cx="20" cy="8" r="1.5"/>
+            <circle cx="4" cy="16" r="1.5"/>
+            <circle cx="20" cy="16" r="1.5"/>
+          </svg>
+        </div>
+
+        <div class="workflow-cards-grid">
+          
+          <div class="workflow-card">
+            <div class="workflow-card-header">
+              <div class="workflow-step-num">01</div>
+              <div class="workflow-step-badge">Acquisition</div>
+            </div>
+            <h3 class="workflow-card-title">DATA CAPTURE</h3>
+            <p class="workflow-card-desc">
+              Optimize mission planning and capture high-quality, accurate data with RTK/PPK geo-tagging for precise, reliable results.
+            </p>
+            <div class="workflow-card-footer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              RTK / PPK Georeferenced
+            </div>
+          </div>
+
+          <div class="workflow-card">
+            <div class="workflow-card-header">
+              <div class="workflow-step-num">02</div>
+              <div class="workflow-step-badge">Processing</div>
+            </div>
+            <h3 class="workflow-card-title">DATA PROCESSING & DATA ANALYSIS</h3>
+            <p class="workflow-card-desc">
+              Seamlessly process data from initial capture to secure storage, delivering refined, visualized datasets with advanced photogrammetry and web platform integration. Turn processed aerial data into actionable insights with advanced analytics for smarter decisions.
+            </p>
+            <div class="workflow-card-footer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Photogrammetry & AI Analytics
+            </div>
+          </div>
+
+          <div class="workflow-card">
+            <div class="workflow-card-header">
+              <div class="workflow-step-num">03</div>
+              <div class="workflow-step-badge">Deliverables</div>
+            </div>
+            <h3 class="workflow-card-title">REPORT GENERATION</h3>
+            <p class="workflow-card-desc">
+              Get detailed survey reports of your land area. Customizable reporting options designed to adapt to various user needs, including CAD file generation and volumetric analysis.
+            </p>
+            <div class="workflow-card-footer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              CAD, DXF & Multi-Format Reports
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: SERVICES (#services)
+       10 Verified Spatial Capabilities Grid + Layer Inspector
+       ========================================================================== -->
+  <section id="services" class="section-services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Verified Services</div>
+        <h2 class="section-title">Comprehensive Spatial Capabilities</h2>
+        <p class="section-subtitle">
+          End-to-end surveying, mapping, modeling, and analytics delivered through OQLO's unified platform.
+        </p>
+      </div>
+
+      <div class="capabilities-grid">
+        
+        <div class="capability-card">
+          <div class="capability-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M4 8L8 10M16 10L20 8M4 16L8 14M16 14L20 16"/><circle cx="4" cy="8" r="2"/><circle cx="20" cy="8" r="2"/><circle cx="4" cy="16" r="2"/><circle cx="20" cy="16" r="2"/></svg>
+          </div>
+          <h3 class="capability-title">Drone Survey</h3>
+          <p class="capability-desc">
+            High-resolution aerial data capture with RTK/PPK geo-tagging for centimeter-level precision and speed.
+          </p>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <h3 class="capability-title">3D Mapping</h3>
+          <p class="capability-desc">
+            Cloud-based photogrammetry delivering true orthomosaics, 3D surface meshes, and spatial representations.
+          </p>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <h3 class="capability-title">Digital Twins</h3>
+          <p class="capability-desc">
+            Interactive, dynamic digital replicas of physical assets to enhance planning, monitoring, and decision-making.
+          </p>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 6H3M21 12H3M21 18H3M7 6v12M17 6v12"/></svg>
+          </div>
+          <h3 class="capability-title">Measurements</h3>
+          <p class="capability-desc">
+            Pinpoint centimeter-level measurement tools for distances, elevation profiles, surface areas, and boundary layout.
+          </p>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="12" y1="3" x2="12" y2="17"/><path d="M8 21h8"/></svg>
+          </div>
+          <h3 class="capability-title">Comparisons</h3>
+          <p class="capability-desc">
+            Real-time site comparison and progress tracking to monitor changes over time, verify work, and prevent delays.
+          </p>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3 class="capability-title">Detailed Analysis</h3>
+          <p class="capability-desc">
+            Comprehensive cut and fill calculations, earthwork verification, terrain classification, and elevation risk detection.
+          </p>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="capability-title">AI-Driven Efficiency</h3>
+          <p class="capability-desc">
+            Automating spatial insights with AI-powered analytics to optimize site expenditure and save up to 80% on costs.
+          </p>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3 class="capability-title">Multi-Format Reporting</h3>
+          <p class="capability-desc">
+            Customizable survey reports, elevation cross-sections, and executive summaries tailored to project requirements.
+          </p>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 12h16M12 4v16"/></svg>
+          </div>
+          <h3 class="capability-title">CAD File Generation</h3>
+          <p class="capability-desc">
+            Direct generation of DXF and DWG linework files for seamless integration into AutoCAD, ArcGIS, and QGIS.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Interactive Layer Inspector -->
+      <div style="margin-top: 60px;">
+        <div class="survey-grid">
+          <div class="survey-info">
+            <div class="section-badge">Dataset Explorer</div>
+            <h3 style="font-size: 26px; font-weight: 800; color: var(--text-dark); margin-bottom: 12px;">Interactive Layer Inspection</h3>
+            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">
+              Inspect real-world survey layers captured and generated by OQLO's platform. Seamlessly toggle between high-resolution orthomosaics, dense 3D point clouds, elevation models, contour lines, and triangular meshes.
+            </p>
+            <div class="survey-feature-list">
+              <div class="survey-feature-item">
+                <div class="survey-feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="survey-feature-text">
+                  <h4>Digital Surface Model (DSM) & DTM</h4>
+                  <p>Accurate digital elevation representation for terrain modeling and cut/fill analysis.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="layer-viewer-card">
+            <div class="layer-viewer-header">
+              <div class="layer-viewer-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0088EA" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                Verified Survey Datasets
+              </div>
+              <span class="twin-panel-badge">OQLO Platform</span>
+            </div>
+
+            <div class="layer-tabs">
+              <button class="layer-tab-btn active" data-layer="ortho">Orthomosaic</button>
+              <button class="layer-tab-btn" data-layer="pointcloud">Point Cloud</button>
+              <button class="layer-tab-btn" data-layer="dsm">DSM Elevation</button>
+              <button class="layer-tab-btn" data-layer="contours">Contours</button>
+              <button class="layer-tab-btn" data-layer="mesh">3D Mesh</button>
+            </div>
+
+            <div class="layer-stage">
+              <img id="survey-layer-image" src="assets/constn_ortho.png" alt="OQLO True Orthomosaic">
+              <div class="layer-scan-bar"></div>
+              <div class="layer-meta-tag" id="layer-meta-text">
+                High-Resolution True Orthomosaic (Sub-centimeter GSD)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: DIGITAL TWIN PLATFORM (#digital-twin)
+       ========================================================================== -->
+  <section id="digital-twin" class="section-digital-twin">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Cloud Reconstruction</div>
+        <h2 class="section-title">Digital Twin Platform</h2>
+        <p class="section-subtitle">
+          OQLO.AI is a self-contained solution for fast, precise digital twin generation, offering a powerful cloud-based 3D reconstruction platform with exceptional accuracy.
+        </p>
+      </div>
+
+      <div class="digital-twin-wrapper">
+        <div class="twin-stage-container">
+          
+          <div class="twin-canvas-wrap canvas-interactive-grab" id="twin-card-wrap">
+            <div class="twin-overlay-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0088EA" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              Interactive 3D Digital Model
+            </div>
+
+            <!-- L2 Floating Spatial Toolbar -->
+            <div class="l2-spatial-toolbar" title="Spatial Navigation Tools">
+              <button class="spatial-tool-btn active" title="L2 Hand Tool (Pan / Rotate / Inspect)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v3"/>
+                  <path d="M14 9V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v7"/>
+                  <path d="M10 9V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
+                  <path d="M10 15a4 4 0 0 0 8 0v-4a2 2 0 0 0-2-2h-1"/>
+                </svg>
+              </button>
+            </div>
+
+            <div id="twin-canvas-container"></div>
+
+            <!-- L2 Hand Tool Gesture Indicator -->
+            <div class="hand-tool-indicator" id="twin-hand-indicator">
+              <div class="hand-tool-icon-wrap">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v3"/>
+                  <path d="M14 9V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v7"/>
+                  <path d="M10 9V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
+                  <path d="M10 15a4 4 0 0 0 8 0v-4a2 2 0 0 0-2-2h-1"/>
+                </svg>
+              </div>
+              <span>Click & Drag to Inspect Digital Twin</span>
+            </div>
+          </div>
+
+          <div class="twin-sidebar-panels">
+            <div class="twin-panel-card">
+              <div class="twin-panel-header">
+                <span class="twin-panel-title">Active Site Marker</span>
+                <span class="twin-panel-badge" id="twin-active-status">Verified</span>
+              </div>
+              <div class="twin-stat-item">
+                <span class="twin-stat-label">Marker ID</span>
+                <span class="twin-stat-val" id="twin-active-title">Survey Marker #402</span>
+              </div>
+              <div class="twin-stat-item">
+                <span class="twin-stat-label">Elevation Datum</span>
+                <span class="twin-stat-val" id="twin-active-elev">+124.5 m</span>
+              </div>
+              <div class="twin-stat-item">
+                <span class="twin-stat-label">Surveyed Footprint</span>
+                <span class="twin-stat-val" id="twin-active-area">12,450 sq ft</span>
+              </div>
+            </div>
+
+            <div class="twin-panel-card">
+              <div class="twin-panel-header">
+                <span class="twin-panel-title">Volumetric Analysis</span>
+                <span class="twin-panel-badge">Stockpile</span>
+              </div>
+              <div class="twin-stat-item">
+                <span class="twin-stat-label">Stockpile Volume</span>
+                <span class="twin-stat-val">4,820 m³</span>
+              </div>
+              <div class="twin-stat-item">
+                <span class="twin-stat-label">Excavation Balance</span>
+                <span class="twin-stat-val">Cut & Fill Calculated</span>
+              </div>
+              <div class="twin-stat-item">
+                <span class="twin-stat-label">Measurement Accuracy</span>
+                <span class="twin-stat-val">Centimeter Level</span>
+              </div>
+            </div>
+
+            <div class="twin-panel-card">
+              <div class="twin-panel-header">
+                <span class="twin-panel-title">Platform Integration</span>
+                <span class="twin-panel-badge">Cloud</span>
+              </div>
+              <div class="twin-stat-item">
+                <span class="twin-stat-label">Secure Storage</span>
+                <span class="twin-stat-val">30GB Cloud Tier</span>
+              </div>
+              <div class="twin-stat-item">
+                <span class="twin-stat-label">Export Compatibility</span>
+                <span class="twin-stat-val">AutoCAD, DXF, GIS</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: AI & CAD
+       ========================================================================== -->
+  <section id="ai" class="section-ai">
+    <div class="container">
+      <div class="ai-container-grid">
+        <div class="ai-details-wrap">
+          <div class="section-badge">AI Spatial Intelligence</div>
+          <h2 class="section-title">AI-Powered Analytics & Automated Classification</h2>
+          <p class="section-subtitle">
+            Turn processed aerial data into actionable insights with advanced analytics, photogrammetry, and cloud integration.
+          </p>
+
+          <div class="ai-points-list">
+            <div class="ai-point-card">
+              <div class="ai-point-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0088EA" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="10"/></svg>
+                Terrain & Ground Object Classification
+              </div>
+              <p class="ai-point-desc">
+                Automatically detects and categorizes ground-based physical objects, structures, and surface materials.
+              </p>
+            </div>
+
+            <div class="ai-point-card">
+              <div class="ai-point-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0088EA" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+                Volumetric & Earthwork Calculations
+              </div>
+              <p class="ai-point-desc">
+                Algorithms compute exact stockpile cut-and-fill volumes to optimize material tracking and prevent budget overruns.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-visual-wrap">
+          <div class="ai-hud-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0088EA" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            AI Model Inspection Active
+          </div>
+          <div id="ai-canvas-container"></div>
+          <div class="ai-classification-box">
+            <div>
+              <strong style="color: var(--text-dark); font-size: 13px;">Classified Object:</strong>
+              <span style="color: var(--text-secondary); font-size: 13px;"> Structural Asset Detected</span>
+            </div>
+            <span class="twin-panel-badge">Confidence: 99.2%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAD Section -->
+  <section id="cad" class="section-cad">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Engineering Integration</div>
+        <h2 class="section-title">Generation of CAD Files</h2>
+        <p class="section-subtitle">
+          Export precision 3D reality models directly into CAD linework, DXF, and DWG formats for seamless engineering workflows.
+        </p>
+      </div>
+
+      <div class="cad-comparison-wrapper">
+        <div class="cad-flow-indicator">
+          <div class="cad-badge">3D MODEL</div>
+          <div class="cad-arrow">↓</div>
+          <div class="cad-badge" style="background-color: #E0F2FE; color: #0284C7; border-color: #BAE6FD;">CAD LINEWORK</div>
+        </div>
+
+        <div class="cad-stage-viewer">
+          <div class="cad-side-box">
+            <div class="cad-side-header">
+              <span>3D Surface Reality Model</span>
+              <span class="twin-panel-badge">Photogrammetry</span>
+            </div>
+            <div class="cad-canvas-box">
+              <img src="assets/constn_mesh.png" alt="3D Mesh Surface Model">
+            </div>
+          </div>
+
+          <div class="cad-side-box">
+            <div class="cad-side-header">
+              <span>Generated CAD Vectors (.DXF / .DWG)</span>
+              <span class="twin-panel-badge">AutoCAD Ready</span>
+            </div>
+            <div class="cad-canvas-box" style="background-color: #FFFFFF; padding: 16px;">
+              <svg width="100%" height="100%" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <pattern id="cadGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E2E8F0" stroke-width="0.7"/>
+                </pattern>
+                <rect width="400" height="300" fill="url(#cadGrid)" />
+                <path d="M 30 180 Q 120 140 220 160 T 370 140" stroke="#0088EA" stroke-width="1.5" fill="none"/>
+                <text x="35" y="175" fill="#0088EA" font-size="10" font-family="monospace">+120.0m</text>
+                <path d="M 30 140 Q 130 100 230 120 T 370 100" stroke="#0088EA" stroke-width="1.5" fill="none"/>
+                <text x="35" y="135" fill="#0088EA" font-size="10" font-family="monospace">+125.0m</text>
+                <rect x="140" y="90" width="110" height="80" stroke="#0F172A" stroke-width="2" fill="none"/>
+                <line x1="140" y1="90" x2="250" y2="170" stroke="#94A3B8" stroke-dasharray="3,3" stroke-width="1"/>
+                <line x1="140" y1="170" x2="250" y2="90" stroke="#94A3B8" stroke-dasharray="3,3" stroke-width="1"/>
+                <text x="148" y="135" fill="#0F172A" font-size="11" font-weight="bold" font-family="monospace">BLDG_LAYER_01</text>
+                <polygon points="50,40 350,40 350,260 50,260" stroke="#0284C7" stroke-width="1.5" stroke-dasharray="6,4" fill="none"/>
+                <circle cx="50" cy="40" r="3" fill="#0284C7"/>
+                <circle cx="350" cy="40" r="3" fill="#0284C7"/>
+                <circle cx="350" cy="260" r="3" fill="#0284C7"/>
+                <circle cx="50" cy="260" r="3" fill="#0284C7"/>
+                <text x="60" y="55" fill="#0284C7" font-size="9" font-family="monospace">BP-01 [N: 18°22'40&quot; E: 78°28'12&quot;]</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: SECTORS (#sectors)
+       ========================================================================== -->
+  <section id="sectors" class="section-sectors">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Industry Solutions</div>
+        <h2 class="section-title">Sectors We Empower</h2>
+        <p class="section-subtitle">
+          OQLO delivers geospatial solutions enabling precise land assessment and resource mapping across core industries.
+        </p>
+      </div>
+
+      <div class="sectors-grid">
+        <div class="sector-card">
+          <div class="sector-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M5 20V8l7-5 7 5v12M9 12h6M9 16h6"/></svg>
+          </div>
+          <h3>Construction</h3>
+          <p>
+            Captures aerial data to track progress, verify grading and elevation leveling, monitor material stockpiles, and identify terrain risks early.
+          </p>
+        </div>
+
+        <div class="sector-card">
+          <div class="sector-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.5-4.5 10-10 10S2 17.5 2 12A10 10 0 0 1 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3>Agriculture</h3>
+          <p>
+            High-resolution crop monitoring, elevation verification for irrigation & water pipelines, and accurate boundary delimitation.
+          </p>
+        </div>
+
+        <div class="sector-card">
+          <div class="sector-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 7 12 12 2 7 12 2"/></svg>
+          </div>
+          <h3>Mining</h3>
+          <p>
+            Tracks extraction site changes, verifies excavation grading, calculates stockpile and haulage volumes, and optimizes haul routes.
+          </p>
+        </div>
+
+        <div class="sector-card">
+          <div class="sector-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/></svg>
+          </div>
+          <h3>Urban Planning</h3>
+          <p>
+            Accelerates smart city development with fast, detailed 3D spatial data for land use assessments and infrastructure planning.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: BLOGS (#blogs) (Verified Articles from oqlo.ai)
+       ========================================================================== -->
+  <section id="blogs" class="section-blogs">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Case Studies & Insights</div>
+        <h2 class="section-title">Latest from OQLO Spatial Blog</h2>
+        <p class="section-subtitle">
+          Real-world applications of drone surveying, digital twins, and AI spatial analytics across projects.
+        </p>
+      </div>
+
+      <div class="blogs-grid">
+        
+        <!-- Blog 1 -->
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="assets/constn_contours.png" alt="Coffee Estate Survey">
+          </div>
+          <div class="blog-card-body">
+            <div>
+              <span class="blog-tag">Agriculture & Cadastral</span>
+              <h3 class="blog-card-title">Discover the boundaries of the coffee estate with Oqlo.ai</h3>
+              <p class="blog-card-desc">
+                Precision drone surveys capture aerial data to accurately map and define the true boundaries of Coffee Estate.
+              </p>
+            </div>
+            <a href="#contact" class="blog-card-link open-demo-btn">
+              Read Case Study
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog 2 -->
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="assets/constn_ortho.png" alt="Land Transformation">
+          </div>
+          <div class="blog-card-body">
+            <div>
+              <span class="blog-tag">Land Development</span>
+              <h3 class="blog-card-title">Monitoring Land Transformation Through Drone Mapping</h3>
+              <p class="blog-card-desc">
+                Drone mapping offers a reliable method for tracking land transformation, capturing detailed elevation changes over time.
+              </p>
+            </div>
+            <a href="#contact" class="blog-card-link open-demo-btn">
+              Read Case Study
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog 3 -->
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="assets/constn_pointcloud.png" alt="Construction Tracking">
+          </div>
+          <div class="blog-card-body">
+            <div>
+              <span class="blog-tag">Construction</span>
+              <h3 class="blog-card-title">Real-time construction tracking with advanced 3D mapping</h3>
+              <p class="blog-card-desc">
+                3D mapping provides real-time visualizations of site progress for better planning, stockpile audits, and decision-making.
+              </p>
+            </div>
+            <a href="#contact" class="blog-card-link open-demo-btn">
+              Read Case Study
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog 4 -->
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="assets/constn_dsm.png" alt="Smart City Development">
+          </div>
+          <div class="blog-card-body">
+            <div>
+              <span class="blog-tag">Urban Planning</span>
+              <h3 class="blog-card-title">Accelerating Smart City Development with 3D Mapping</h3>
+              <p class="blog-card-desc">
+                Drone-powered 3D mapping accelerates smart city development by providing fast, accurate, and detailed spatial data.
+              </p>
+            </div>
+            <a href="#contact" class="blog-card-link open-demo-btn">
+              Read Case Study
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: ABOUT (#about) (Who We Are, 48-Hour Delivery, Verified Team)
+       ========================================================================== -->
+  <section id="about" class="section-about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Company & Leadership</div>
+        <h2 class="section-title">About OQLO.AI</h2>
+        <p class="section-subtitle">
+          Transforming site surveying and geospatial workflows through precision drone technology and AI analytics.
+        </p>
+      </div>
+
+      <div class="about-lead-grid">
+        <div class="about-box">
+          <h3>Who We Are?</h3>
+          <p>
+            At OQLO, we’re all about doing things differently! We're here to transform the way you tackle site surveys with our game-changing drone technology and our AI-powered smart platform. No more dragging through slow, outdated methods—we’re here to deliver speed, accuracy, and real cost savings!
+          </p>
+          <p>
+            We make your work simpler, faster, and way more efficient. Whether you're in construction, agriculture, or mining, we’ve got the tools to capture crystal-clear data and create dynamic digital twins for smarter decision-making.
+          </p>
+        </div>
+
+        <div class="about-highlight-card">
+          <div class="about-highlight-item">
+            <div class="about-hl-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="about-hl-text">
+              <h4>Get your job done in 48 hours</h4>
+              <p>Swift execution ensures timely delivery, efficiency, and project success without bottlenecks.</p>
+            </div>
+          </div>
+
+          <div class="about-highlight-item">
+            <div class="about-hl-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="about-hl-text">
+              <h4>Centimeter Precision Standard</h4>
+              <p>RTK/PPK geo-tagging guarantees pinpoint ~99% accuracy exceeding traditional land surveys.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verified Leadership Profiles directly from oqlo.ai -->
+      <div class="section-header" style="margin-bottom: 30px;">
+        <h3 style="font-size: 24px; font-weight: 800; color: var(--text-dark);">Meet the Visionary Leaders</h3>
+      </div>
+
+      <div class="team-grid">
+        
+        <div class="team-card">
+          <div class="team-avatar">P</div>
+          <div class="team-info">
+            <h4>Phanindra</h4>
+            <div class="team-role">Co-Founder & Geospatial Lead</div>
+            <p class="team-bio">
+              With over a decade of expertise, Phanindra pioneers drone surveying, BIM, and GIS for digital twins, seamlessly blending innovation, client relations, and deep spatial tech domain knowledge.
+            </p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">D</div>
+          <div class="team-info">
+            <h4>Durga Rakesh</h4>
+            <div class="team-role">3D Spatial & Reconstruction Lead</div>
+            <p class="team-bio">
+              The tech-savvy artist at OQLO, transforming real-world drone data into stunning digital twin realities, high-fidelity 3D meshes, and precision spatial models.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: STATS & TESTIMONIALS
+       ========================================================================== -->
+  <section class="section-stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-number">Centimeter</div>
+          <div class="stat-label">Pinpoint Accuracy</div>
+          <div class="stat-sub">~99% Survey Precision</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">80%</div>
+          <div class="stat-label">Cost Savings</div>
+          <div class="stat-sub">Compared to traditional surveys</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">30 GB</div>
+          <div class="stat-label">Secure Cloud Storage</div>
+          <div class="stat-sub">For raw imagery, models & reports</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">48 Hours</div>
+          <div class="stat-label">Rapid Delivery</div>
+          <div class="stat-sub">Swift geospatial turnaround</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-impact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Client Impact</div>
+        <h2 class="section-title">Verified Field Performance</h2>
+        <p class="section-subtitle">
+          Real feedback from engineering, civil, and development leaders using OQLO.
+        </p>
+      </div>
+
+      <div class="impact-grid">
+        <div class="impact-card">
+          <p class="impact-quote">
+            “I was truly impressed with the drone-based survey conducted by Oqlo. The accuracy was outstanding, around 99%, which surpassed our expectations and what we could have achieved with a traditional survey. It was also much more efficient and cost-effective.”
+          </p>
+          <div class="impact-author">
+            <div class="author-name">Viplav Valluri</div>
+            <div class="author-title">Founder, VASA HABITATS PRIVATE LIMITED</div>
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <p class="impact-quote">
+            “Oqlo’s drone services provided us with highly detailed site analysis and mapping, allowing us to make more informed decisions. The technology was seamless, and the team was very professional.”
+          </p>
+          <div class="impact-author">
+            <div class="author-name">Surya Prakash G</div>
+            <div class="author-title">Managing Director, S P ASSOCIATES</div>
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <p class="impact-quote">
+            “The comparison feature proved to be an invaluable tool for our construction project. The ability to accurately track stockpile levels in real-time enabled us to optimise our material management, prevent delays, and maintain consistent project progress.”
+          </p>
+          <div class="impact-author">
+            <div class="author-name">Sri Rama</div>
+            <div class="author-title">Managing Director, Lantek Engineering Consultants</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FINAL CTA (#contact)
+       ========================================================================== -->
+  <section id="contact" class="section-cta">
+    <div class="container">
+      <div class="cta-box">
+        <div class="section-badge">Get Started</div>
+        <h2 class="cta-title">Transform Your Site Surveys with OQLO</h2>
+        <p class="cta-desc">
+          Experience pinpoint centimeter accuracy, dynamic digital twins, and AI spatial analytics tailored to your operations.
+        </p>
+        <div class="cta-actions">
+          <button class="btn-primary open-demo-btn">
+            GET FREE DEMO
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <a href="mailto:Sales@oqlo.ai" class="btn-secondary">
+            Contact Sales@oqlo.ai
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER (Solid White, Verified Links)
+       ========================================================================== -->
+  <footer class="footer-main">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/oqlo_logo.png" alt="OQLO Logo">
+          <span>OQLO.AI</span>
+        </div>
+
+        <div class="footer-nav">
+          <a href="#hero">Home</a>
+          <a href="#process">Process</a>
+          <a href="#services">Services</a>
+          <a href="#sectors">Sectors</a>
+          <a href="#blogs">Blogs</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/oqloai/posts/?feedView=all" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/oqloai?igsh=ZHYxd2FvOGQ4Nmps" target="_blank" rel="noopener" class="social-link" title="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://youtube.com/@oqloai?si=sm_IjyC0OpbmTuKY" target="_blank" rel="noopener" class="social-link" title="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2024 OQLO.AI. All rights reserved.</div>
+        <div>Sales Inquiry: <a href="mailto:Sales@oqlo.ai" style="color: var(--oqlo-blue);">Sales@oqlo.ai</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       DEMO MODAL
+       ========================================================================== -->
+  <div id="demo-modal" class="modal-backdrop">
+    <div class="modal-content">
+      <button id="close-demo-modal" class="modal-close-btn" aria-label="Close modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <h3 class="modal-title">Request a Live Demonstration</h3>
+      <p class="modal-sub">See how OQLO's drone surveying and digital twin platform optimizes site operations.</p>
+
+      <form id="demo-form">
+        <div class="form-group">
+          <label class="form-label" for="full-name">Full Name</label>
+          <input type="text" id="full-name" class="form-input" placeholder="e.g. Alexander Wright" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="work-email">Work Email</label>
+          <input type="email" id="work-email" class="form-input" placeholder="e.g. name@company.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="industry-sector">Industry Sector</label>
+          <select id="industry-sector" class="form-select" required>
+            <option value="construction">Construction & Infrastructure</option>
+            <option value="agriculture">Agriculture & Plantations</option>
+            <option value="mining">Mining & Aggregates</option>
+            <option value="urban">Urban Planning & Smart Cities</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="survey-area">Estimated Survey Area (Acres)</label>
+          <input type="text" id="survey-area" class="form-input" placeholder="e.g. 100 - 500 Acres">
+        </div>
+
+        <button type="submit" class="form-submit-btn">SCHEDULE PLATFORM DEMO</button>
+      </form>
+
+      <div id="form-success-msg" style="display: none; text-align: center; padding: 20px 0;">
+        <div style="width: 48px; height: 48px; background: #E0F2FE; color: #0284C7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h4 style="font-size: 18px; font-weight: 800; color: var(--text-dark); margin-bottom: 6px;">Demo Request Received</h4>
+        <p style="font-size: 14px; color: var(--text-secondary);">Our engineering team will connect with you via Sales@oqlo.ai shortly.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/three.min.js?v=3"></script>
+  <script src="js/OrbitControls.js?v=3"></script>
+  <script src="js/three-hero.js?v=3"></script>
+  <script src="js/three-digital-twin.js?v=3"></script>
+  <script src="js/three-ai.js?v=3"></script>
+  <script src="js/app.js?v=3"></script>
+</body>
+</html>
